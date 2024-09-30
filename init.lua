@@ -6,13 +6,7 @@ return function(parents, methods)
     -- Copy methods from parents to instance and class_
     for _, parent in ipairs(parents) do
         for name, method in pairs(parent) do
-            if name == "__init" then
-                instance.init = method
-                class_.init = method
-            else
-                instance[name] = method
-                class_[name] = method
-            end
+            class_[name] = method
         end
     end
     
